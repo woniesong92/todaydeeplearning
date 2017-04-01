@@ -2,6 +2,9 @@
 
 <% @arvix_papers.each do |paper| %>
   <div>
+    <b><%= paper.get_likes.size %> </b>
+    <%= link_to "Like", upvote_arvix_paper_path(paper), method: :post %> |
+    <%= link_to "Dislike", downvote_arvix_paper_path(paper), method: :post %> |
     <%= link_to paper.title, paper %>
   </div>
 <% end %>
