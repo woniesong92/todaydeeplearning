@@ -1,6 +1,6 @@
 <tr class="paper-preview">
-  <td class="paper-preview__cell"><%= paper.get_likes.size %></td>
-  <td class="paper-preview__cell"><%= link_to "Up", upvote_arvix_paper_path(paper), method: :post %> |
+  <td class="paper-preview__cell">0</td>
+  <td class="paper-preview__cell"><%= link_to "Up", upvote_arvix_paper_path(paper), method: :post %> | <%= paper.get_likes.size %> |
     <%= link_to "Down", downvote_arvix_paper_path(paper), method: :post %></td>
   <td class="paper-preview__cell"><%= link_to paper.title, paper %></td>
   <td class="paper-preview__cell">Some Author</td>

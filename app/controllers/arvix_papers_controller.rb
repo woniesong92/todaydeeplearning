@@ -3,7 +3,9 @@ class ArvixPapersController < ApplicationController
   before_action :require_login, only: [:upvote, :downvote]
 
   def index
-    @arvix_papers = ArvixPaper.all
+    # TODO: case (today, this_week, this_month)
+
+    @arvix_papers = ArvixPaper.sort_by_rank(ArvixPaper.today)
   end
 
   def show
