@@ -7,10 +7,16 @@
 }
 
 .paper-preview__title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.paper-preview__text-left {
   text-align: left;
 }
 
 .paper-preview__votes {
   display: flex;
   flex-direction: column;
+  align-items: middle;
 }
