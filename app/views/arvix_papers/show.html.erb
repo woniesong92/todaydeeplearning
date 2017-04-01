@@ -1,8 +1,11 @@
-<h1>ArvixPaper Detail</h1>
+<div class="paper-detail">
+  <h2><%= @arvix_paper.title %></h2>
+  <p><%= @arvix_paper.summary %></p>
 
+  <div class="paper-detail__captures">
 
-<%= @arvix_paper.as_json %>
-
-<div>
-  <%= link_to "Back", :back %>
+  </div>
+  <div>
+    <%= link_to "Back", :back %>
+  </div>
 </div>
