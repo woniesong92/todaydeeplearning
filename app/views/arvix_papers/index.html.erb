@@ -15,8 +15,8 @@
       </tr>
     </thead>
     <tbody>
-      <% @arvix_papers.each do |paper| %>
-        <%= render 'paper_preview', paper: paper %>
+      <% @arvix_papers.each_with_index do |paper, idx| %>
+        <%= render 'paper_preview', paper: paper, paper_rank: idx + 1 %>
       <% end %>
     </tbody>
   </table>

@@ -24,6 +24,7 @@ gem 'httparty'
 gem 'nokogiri'
 gem 'acts_as_votable'
 gem 'devise'
+gem 'font-awesome-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

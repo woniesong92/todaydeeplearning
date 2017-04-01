@@ -5,3 +5,12 @@
 .paper-preview__cell {
   text-align: center;
 }
+
+.paper-preview__title {
+  text-align: left;
+}
+
+.paper-preview__votes {
+  display: flex;
+  flex-direction: column;
+}

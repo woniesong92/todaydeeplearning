@@ -1,8 +1,11 @@
 <tr class="paper-preview">
-  <td class="paper-preview__cell">0</td>
-  <td class="paper-preview__cell"><%= link_to "Up", upvote_arvix_paper_path(paper), method: :post %> | <%= paper.get_likes.size %> |
-    <%= link_to "Down", downvote_arvix_paper_path(paper), method: :post %></td>
-  <td class="paper-preview__cell"><%= link_to paper.title, paper %></td>
+  <td class="paper-preview__cell"><%= paper_rank %></td>
+  <td class="paper-preview__cell paper-preview__votes">
+    <div><%= link_to fa_icon("chevron-up"), upvote_arvix_paper_path(paper), method: :post %></div>
+    <div><%= paper.get_likes.size %></div>
+    <div><%= link_to fa_icon("chevron-down"), downvote_arvix_paper_path(paper), method: :post %></div>
+  </td>
+  <td class="paper-preview__cell paper-preview__title"><%= link_to paper.title, paper %></td>
   <td class="paper-preview__cell">Some Author</td>
   <td class="paper-preview__cell"><%= link_to paper.category, arvix_papers_path(category: paper.category) %></td>
   <td class="paper-preview__cell"><%= format_date(paper.published_date) %></td>
