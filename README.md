@@ -1,24 +1,11 @@
-# README
+# Today's Deep Learning
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+We want to recommend the best Arvix papers in (cs.[CV|CL|LG|AI|NE]/stat.ML) categories.
+We will pull the papers everyday and the users will upvote the papers they recommend.
+The papers will be ranked based on the number of votes they received during the day, week, and month.
 
-Things you may want to cover:
+## Requirements
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Pull papers everyday
+2. Post screenshots and summaries of papers
+3. Let users upvote/downvote
