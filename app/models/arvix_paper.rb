@@ -1,9 +1,27 @@
 class ArvixPaper < ApplicationRecord
   acts_as_votable
 
-  scope :today, -> { where(created_at: 1.day.ago..DateTime.now).order(created_at: :desc).limit(200) }
-  scope :this_week, -> { where(created_at: 1.week.ago..DateTime.now).order(created_at: :desc).limit(200) }
-  scope :this_month, -> { where(created_at: 1.month.ago..DateTime.now).order(created_at: :desc).limit(200) }
+  scope :within, -> (period, category) {
+    case period
+    when 'today'
+      category ?
+        where(category: category, created_at: 1.day.ago..DateTime.now).order(created_at: :desc).limit(200) :
+        where(created_at: 1.day.ago..DateTime.now).order(created_at: :desc).limit(200)
+
+    when 'this_week'
+      category ?
+        where(category: category, created_at: 1.week.ago..DateTime.now).order(created_at: :desc).limit(200) :
+        where(created_at: 1.week.ago..DateTime.now).order(created_at: :desc).limit(200)
+    when 'this_month'
+      category ?
+        where(category: category, created_at: 1.month.ago..DateTime.now).order(created_at: :desc).limit(200) :
+        where(created_at: 1.month.ago..DateTime.now).order(created_at: :desc).limit(200)
+    else
+      category ?
+        where(category: category, created_at: 1.month.ago..DateTime.now).order(created_at: :desc).limit(200) :
+        where(created_at: 1.month.ago..DateTime.now).order(created_at: :desc).limit(200)
+    end
+  }
 
   class << self
     def sort_by_rank(papers)
