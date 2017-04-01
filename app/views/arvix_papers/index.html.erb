@@ -1,10 +1,23 @@
-<h1>all Arvix papers</h1>
+<div class="papers-index">
+  <%= render 'paper_filters' %>
 
-<% @arvix_papers.each do |paper| %>
-  <div>
-    <b><%= paper.get_likes.size %> </b>
-    <%= link_to "Like", upvote_arvix_paper_path(paper), method: :post %> |
-    <%= link_to "Dislike", downvote_arvix_paper_path(paper), method: :post %> |
-    <%= link_to paper.title, paper %>
-  </div>
-<% end %>
+  <table class="papers-index__table">
+    <thead>
+      <tr>
+        <th><!-- rank --></th>
+        <th><!-- upvote/downvote --></th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Category</th>
+        <th>Published</th>
+        <th>Pdf</th>
+        <th>Html</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @arvix_papers.each do |paper| %>
+        <%= render 'paper_preview', paper: paper %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

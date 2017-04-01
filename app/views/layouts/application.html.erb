@@ -8,11 +8,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <% unless current_page?(controller: 'devise/registrations', action: 'new') || current_page?(controller: 'devise/sessions', action: 'new') %>
-      <%= render 'shared/nav' %>
-    <% end %>
+  <% unless current_page?(controller: 'devise/registrations', action: 'new') || current_page?(controller: 'devise/sessions', action: 'new') %>
+    <%= render 'shared/nav' %>
+  <% end %>
 
-    <%= yield %>
+  <body>
+    <div class="content">
+      <%= yield %>
+    </div>
   </body>
 </html>
