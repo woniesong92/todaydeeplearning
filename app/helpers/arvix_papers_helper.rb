@@ -1,0 +1,2 @@
+module ArvixPapersHelper
+end

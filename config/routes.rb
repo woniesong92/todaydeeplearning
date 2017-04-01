@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'arvix_papers#index'
+
   get 'home/index'
+
+  resources :arvix_papers, only: [:index, :show]
 end
