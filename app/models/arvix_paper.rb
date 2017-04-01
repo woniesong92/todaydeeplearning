@@ -1,0 +1,2 @@
+class ArvixPaper < ApplicationRecord
+end

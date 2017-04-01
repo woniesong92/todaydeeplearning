@@ -15,11 +15,16 @@ class ArvixGetter
   include HTTParty
   base_uri 'http://export.arxiv.org/api/query'
 
-  def initialize(cat: 'cs.AI', max_results: '10')
-    @options = { query: { search_query: cat, max_results: max_results } }
+  def initialize(cat: 'cs.AI', max_results: '2', sortBy: 'lastUpdatedDate', sortOrder: 'descending')
+    @options = { query: {
+      search_query: cat,
+      max_results: max_results,
+      sortBy: sortBy,
+      sortOrder: sortOrder
+    } }
   end
 
   def papers
-    self.class.get("", @options)
+    self.class.get("", @options).body
   end
 end
