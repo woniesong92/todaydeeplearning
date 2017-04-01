@@ -22,6 +22,7 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'httparty'
 gem 'nokogiri'
+gem 'acts_as_votable'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
