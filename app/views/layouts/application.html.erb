@@ -9,6 +9,10 @@
   </head>
 
   <body>
+    <% unless current_page?(controller: 'devise/registrations', action: 'new') || current_page?(controller: 'devise/sessions', action: 'new') %>
+      <%= render 'shared/nav' %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
