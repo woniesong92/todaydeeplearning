@@ -15,9 +15,14 @@ class ArvixParser
       pdf_link: @entry['link'].find { |l| l['type'] == 'application/pdf' }['href'],
       published_date: DateTime.parse(@entry['published']),
       paper_updated_at: DateTime.parse(@entry['updated']),
-      raw_data: @entry
+      raw_data: @entry,
     }
-    
+    # TODO: authors?
+
     parsed
+  end
+
+  def author_names
+    @entry['author']&.map { |author| author['name'] }
   end
 end

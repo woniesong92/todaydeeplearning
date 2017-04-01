@@ -1,6 +1,9 @@
 class ArvixPaper < ApplicationRecord
   acts_as_votable
 
+  has_many :author_paper_connections, dependent: :destroy
+  has_many :authors, through: :author_paper_connections
+
   scope :within, -> (period, category) {
     case period
     when 'today'
@@ -22,6 +25,10 @@ class ArvixPaper < ApplicationRecord
         where(created_at: 1.month.ago..DateTime.now).order(created_at: :desc).limit(200)
     end
   }
+
+  def author_names
+    self.authors.map { |author| author.name }
+  end
 
   class << self
     def sort_by_rank(papers)

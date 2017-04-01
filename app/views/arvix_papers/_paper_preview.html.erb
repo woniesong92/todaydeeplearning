@@ -15,7 +15,7 @@
       <%= paper.summary %>
     </div>
   </td>
-  <td class="paper-preview__cell">Some Author</td>
+  <td class="paper-preview__cell"><%= paper.author_names.join(', ') %></td>
   <td class="paper-preview__cell"><%= link_to paper.category, arvix_papers_path(category: paper.category) %></td>
   <td class="paper-preview__cell"><%= format_date(paper.published_date) %></td>
   <td class="paper-preview__cell"><%= link_to 'pdf', paper.pdf_link %></td>

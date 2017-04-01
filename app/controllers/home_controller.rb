@@ -4,6 +4,8 @@ class HomeController < ApplicationController
     hashed = Hash.from_xml(raw_papers)
     entries = hashed["feed"]["entry"]
     entry = entries[0]
-    parsed_entry = ArvixParser.new(entry).parse
+
+    # NOTE: this will be in a bg job
+    # ArvixPaper::Create.new(entry).call
   end
 end
