@@ -1,21 +1,21 @@
 <div class="paper-filters">
   <div class="paper-filters__categories">
-    All categories
+    <%= params[:category].present? ? params[:category] : 'All categories' %>
   </div>
 
   <div class="paper-filters__item">
-    Today's Best
+    <%= link_to "Today's Best", arvix_papers_path(period: 'today', category: params[:category]) %>
   </div>
 
   <div class="paper-filters__item">
-    Weekly Best
+    <%= link_to "Weekly Best", arvix_papers_path(period: 'this_week', category: params[:category]) %>
   </div>
 
   <div class="paper-filters__item">
-    Monthly Best
+    <%= link_to "Monthly Best", arvix_papers_path(period: 'this_month', category: params[:category]) %>
   </div>
 
   <div class="paper-filters__item">
-    Latest
+    <%= link_to "Latest", arvix_papers_path(latest: 1, category: params[:category]) %>
   </div>
 </div>

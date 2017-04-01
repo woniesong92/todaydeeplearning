@@ -4,7 +4,7 @@
     <%= link_to "Down", downvote_arvix_paper_path(paper), method: :post %></td>
   <td class="paper-preview__cell"><%= link_to paper.title, paper %></td>
   <td class="paper-preview__cell">Some Author</td>
-  <td class="paper-preview__cell"><%= paper.category %></td>
+  <td class="paper-preview__cell"><%= link_to paper.category, arvix_papers_path(category: paper.category) %></td>
   <td class="paper-preview__cell"><%= format_date(paper.published_date) %></td>
   <td class="paper-preview__cell"><%= link_to 'pdf', paper.pdf_link %></td>
   <td class="paper-preview__cell"><%= link_to 'html', paper.paper_link %></td>

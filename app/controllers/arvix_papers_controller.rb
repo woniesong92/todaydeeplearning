@@ -4,7 +4,7 @@ class ArvixPapersController < ApplicationController
 
   def index
     papers = ArvixPaper.within(params[:period], params[:category])
-    @arvix_papers = ArvixPaper.sort_by_rank(papers)
+    @arvix_papers = params[:latest] ? papers : ArvixPaper.sort_by_rank(papers)
   end
 
   def show
