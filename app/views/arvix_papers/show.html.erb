@@ -2,8 +2,8 @@
   <h2><%= @arvix_paper.title %></h2>
   <p><%= @arvix_paper.summary %></p>
 
-  <div class="paper-detail__captures">
-
+  <div class="paper-detail__thumbnail-container">
+    <%= image_tag(@arvix_paper.thumbnail_url, class: 'paper-detail__thumbnail') if @arvix_paper.thumbnail? %>
   </div>
   <div>
     <%= link_to "Back", :back %>

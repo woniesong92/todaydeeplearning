@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # Custom routes
   get 'home/index'
 
-  resources :arvix_papers, only: [:index, :show] do
+  resources :arvix_papers, only: [:index, :show, :update] do
     member do
       post :upvote
       post :downvote

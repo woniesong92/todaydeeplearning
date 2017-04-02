@@ -1,5 +1,5 @@
 class ArvixPapersController < ApplicationController
-  before_action :load_paper, only: [:show, :upvote, :downvote]
+  before_action :load_paper, only: [:show, :upvote, :downvote, :update]
   before_action :require_login, only: [:upvote, :downvote]
 
   def index
@@ -8,6 +8,13 @@ class ArvixPapersController < ApplicationController
   end
 
   def show
+  end
+
+  def update
+    permitted_params = params.require(:arvix_paper).permit!
+    x = @arvix_paper.update(permitted_params)
+
+    redirect_to arvix_paper_path(@arvix_paper)
   end
 
   def upvote

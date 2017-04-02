@@ -1,6 +1,8 @@
 class ArvixPaper < ApplicationRecord
   acts_as_votable
 
+  mount_uploader :thumbnail, ArvixPaperThumbnailUploader
+
   has_many :author_paper_connections, dependent: :destroy
   has_many :authors, through: :author_paper_connections
 
