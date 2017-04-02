@@ -13,15 +13,15 @@
   text-align: center;
 }
 
-.papers-index__page-link {
+.papers-index__page-link,
+.papers-index__page-link:hover,
+.papers-index__page-link:focus,
+.papers-index__page-link:active,
+.papers-index__page-link--active, {
   padding: 5px 10px;
   background-color: $link-active;
   color: white;
-}
-
-.papers-index__page-link:hover {
-  background-color: $link-active;
-  color: white;  
+  text-decoration: none;
 }
 
 .papers-index__pagination {

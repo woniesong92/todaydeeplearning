@@ -16,6 +16,8 @@
 }
 
 .paper-filters__link:hover,
+.paper-filters__link:active,
+.paper-filters__link:focus,
 .paper-filters__link--active {
   background-color: $link-active;
   color: white;
