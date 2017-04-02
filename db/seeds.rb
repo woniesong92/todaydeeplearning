@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# This will download 3 latest arvix papers from cs.AI category
+populate_with_real_papers(3)
+
+def populate_with_real_papers(max_results=5)
+  raw_papers = ArvixGetter.new().papers
+  hashed = Hash.from_xml(raw_papers)
+  entries = hashed["feed"]["entry"]
+
+  entries.each do |entry|
+    ArvixPaper::Create.new(entry).call
+  end
+end
