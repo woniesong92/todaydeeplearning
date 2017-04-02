@@ -23,6 +23,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'bootstrap-sass'
 gem 'sidekiq'
 gem 'fog'
+gem 'pry'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'

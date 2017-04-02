@@ -10,13 +10,6 @@ class ArvixPapersController < ApplicationController
   def show
   end
 
-  def update
-    permitted_params = params.require(:arvix_paper).permit!
-    x = @arvix_paper.update(permitted_params)
-
-    redirect_to arvix_paper_path(@arvix_paper)
-  end
-
   def upvote
     @arvix_paper.liked_by current_user
     redirect_to arvix_papers_path

@@ -6,7 +6,7 @@ class ArvixPaper::Create
   def call
     arvix_paper_params = ArvixParser.new(@entry).parse
 
-    if arvix_paper_params
+    if arvix_paper_params && !already_stored?(arvix_paper_params[:title])
       author_names = ArvixParser.new(@entry).author_names
       arvix_paper = ArvixPaper.create(arvix_paper_params)
 
@@ -27,5 +27,9 @@ class ArvixPaper::Create
     thumbnail_path = ArvixPaper::PdfToThumb.new(arvix_paper[:pdf_link]).call
     arvix_paper.thumbnail = File.open(thumbnail_path)
     arvix_paper.save!
+  end
+
+  def already_stored?(title)
+    ArvixPaper.find_by(title: title).present?
   end
 end
