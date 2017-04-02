@@ -31,6 +31,28 @@ $ rake arvix_papers:populate_with_latest_papers
 1. Pick an issue
 2. Open a PR
 
+### Deploy to Heroku
+
+1. Create a heroku instance and setup DB
+
+  ```
+  $heroku create todaysdeeplearning
+  $heroku run rake db:migrate
+  $heroku restart
+  ```
+
+2. `$git push heroku master`
+3. Install ImageMagick on Heroku
+
+  ```
+  $heroku buildpacks:add --index 1 https://github.com/ello/heroku-buildpack-imagemagick
+  ```
+4. Open the website in heroku
+
+  ```
+  $heroku open
+  ```
+
 ### Heavily inspired by
 
 1. http://www.arxiv-sanity.com/
