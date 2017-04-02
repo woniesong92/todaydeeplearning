@@ -6,6 +6,8 @@ class ArvixPaper < ApplicationRecord
   has_many :author_paper_connections, dependent: :destroy
   has_many :authors, through: :author_paper_connections
 
+  CATEGORIES = ['cs.CV', 'cs.CL', 'cs.LG', 'cs.AI', 'cs.NE', 'stat.ML'].freeze
+
   scope :within, -> (period, category) {
     case period
     when 'today'

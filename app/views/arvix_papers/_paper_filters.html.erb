@@ -1,6 +1,13 @@
 <div class="paper-filters">
   <div class="paper-filters__categories">
-    <%= params[:category].present? ? params[:category] : 'All categories' %>
+    <div class="paper-filters__active-category">
+      <%= params[:category].present? ? params[:category] : 'All categories' %> <%= fa_icon('caret-down') %>
+    </div>
+    <ul class="paper-filters__categories-dropdown">
+      <% ArvixPaper::CATEGORIES.each do |cat| %>
+        <li class="paper-filters__category-option"><%= link_to cat, arvix_papers_path(period: params[:period], category: cat) %></li>
+      <% end %>
+    </ul>
   </div>
 
   <div class="paper-filters__item">
