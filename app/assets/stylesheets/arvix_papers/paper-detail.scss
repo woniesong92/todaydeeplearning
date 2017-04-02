@@ -1,3 +1,5 @@
+@import '../shared/colors';
+
 .paper-detail {
 
 }
@@ -5,4 +7,19 @@
 .paper-detail__thumbnail-container,
 .paper-detail__thumbnail {
   width: 100%;
+}
+
+.paper-detail__info {
+  margin-bottom: 10px;
+}
+
+.paper-detail__authors {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.paper-detail__published_date {
+  font-style: italic;
+  color: $font-grey
 }

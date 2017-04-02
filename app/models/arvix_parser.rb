@@ -12,12 +12,11 @@ class ArvixParser
       summary: @entry['summary'],
       comment: @entry['comment'],
       paper_link: @entry['link'].find { |l| l['type'] == 'text/html' }['href'],
-      pdf_link: @entry['link'].find { |l| l['type'] == 'application/pdf' }['href'],
+      pdf_link: @entry['link'].find { |l| l['type'] == 'application/pdf' }['href'] + '.pdf',
       published_date: DateTime.parse(@entry['published']),
       paper_updated_at: DateTime.parse(@entry['updated']),
       raw_data: @entry,
     }
-    # TODO: authors?
 
     parsed
   end

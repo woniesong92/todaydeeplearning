@@ -1,5 +1,20 @@
 <div class="paper-detail">
   <h2><%= @arvix_paper.title %></h2>
+
+  <div class="paper-detail__info">
+    <div class="paper-detail__authors">
+      <%= @arvix_paper.author_names.join(", ") %>
+    </div>
+    <div class="paper-detail__published_date">
+      <%= format_date(@arvix_paper.published_date) %>
+    </div>
+
+    <div class="paper-detail__links">
+      <%= link_to 'pdf', @arvix_paper.pdf_link %>
+      <%= link_to 'html', @arvix_paper.paper_link %>
+    </div>
+  </div>
+
   <p><%= @arvix_paper.summary %></p>
 
   <div class="paper-detail__thumbnail-container">
