@@ -15,13 +15,9 @@
   padding: 10px 5px;
 }
 
-.paper-filters__link:hover {
-  background-color: lighten($link-active, 15%);
-  color: darken(white, 5%);
-  text-decoration: none;
-}
-
+.paper-filters__link:hover,
 .paper-filters__link--active {
   background-color: $link-active;
   color: white;
+  text-decoration: none;
 }

@@ -1,5 +1,7 @@
-.papers-index {
+@import '../shared/colors';
 
+.papers-index {
+  margin-bottom: 20px;
 }
 
 .papers-index__table {
@@ -9,4 +11,24 @@
 
 .papers-index__table th {
   text-align: center;
+}
+
+.papers-index__page-link {
+  padding: 5px 10px;
+  background-color: $link-active;
+  color: white;
+}
+
+.papers-index__page-link:hover {
+  background-color: $link-active;
+  color: white;  
+}
+
+.papers-index__pagination {
+  padding: 25px 0;
+}
+
+.papers-index__more-papers {
+  font-style: italic;
+  color: $font-grey;
 }

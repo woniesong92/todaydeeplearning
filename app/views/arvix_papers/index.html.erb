@@ -20,4 +20,10 @@
       <% end %>
     </tbody>
   </table>
+
+  <div class="papers-index__pagination">
+    <span class="papers-index__more-papers">More papers</span>
+    <%= link_to_previous_page @arvix_papers, '<i class="fa fa-caret-left"></i> Prev'.html_safe, class: "papers-index__page-link" %>
+    <%= link_to_next_page @arvix_papers, 'Next <i class="fa fa-caret-right"></i>'.html_safe, class: "papers-index__page-link" %>
+  </div>
 </div>

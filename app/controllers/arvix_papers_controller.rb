@@ -4,7 +4,13 @@ class ArvixPapersController < ApplicationController
 
   def index
     papers = ArvixPaper.within(params[:period], params[:category])
-    @arvix_papers = params[:latest] ? papers : ArvixPaper.sort_by_rank(papers)
+
+    if params[:latest]
+      @arvix_papers = papers.page(params[:page]).without_count
+    else
+      sorted_papers = ArvixPaper.sort_by_rank(papers)
+      @arvix_papers = Kaminari.paginate_array(sorted_papers).page(params[:page]).per(10)
+    end
   end
 
   def show

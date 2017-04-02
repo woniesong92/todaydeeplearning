@@ -1,6 +1,6 @@
 class ArvixPaper < ApplicationRecord
+  paginates_per 10
   acts_as_votable
-
   mount_uploader :thumbnail, ArvixPaperThumbnailUploader
 
   has_many :author_paper_connections, dependent: :destroy

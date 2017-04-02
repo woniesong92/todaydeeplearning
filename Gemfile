@@ -24,6 +24,7 @@ gem 'bootstrap-sass'
 gem 'sidekiq'
 gem 'fog'
 gem 'pry'
+gem 'kaminari'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
