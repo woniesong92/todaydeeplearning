@@ -4,7 +4,7 @@
   <table class="papers-index__table">
     <thead>
       <tr>
-        <th>Rank</th>
+        <th><!-- rank --></th>
         <th><!-- upvote/downvote --></th>
         <th>Title</th>
         <th>Author</th>
@@ -16,7 +16,8 @@
     </thead>
     <tbody>
       <% @arvix_papers.each_with_index do |paper, idx| %>
-        <%= render 'paper_preview', paper: paper, paper_rank: idx + 1 %>
+        <%= render 'paper_preview', paper: paper,
+          paper_rank: ((params[:page].to_i > 0 ? ((params[:page].to_i - 1) * 10) : 0) + idx + 1) %>
       <% end %>
     </tbody>
   </table>
