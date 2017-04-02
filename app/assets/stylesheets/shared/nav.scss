@@ -1,8 +1,14 @@
 nav {
-  display: flex !important;
-  align-items: center;
   height: 60px;
   box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
+}
+
+.nav__content {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  max-width: 1110px;
+  margin: 0 auto;
 }
 
 .nav__logo {

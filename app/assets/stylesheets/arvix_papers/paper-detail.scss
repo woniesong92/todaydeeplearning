@@ -1,7 +1,7 @@
 @import '../shared/colors';
 
 .paper-detail {
-
+  padding-bottom: 20px;
 }
 
 .paper-detail__thumbnail-container,
@@ -21,5 +21,9 @@
 
 .paper-detail__published_date {
   font-style: italic;
-  color: $font-grey
+  color: $font-grey;
+}
+
+.paper-detail__links {
+  margin-top: 10px;
 }

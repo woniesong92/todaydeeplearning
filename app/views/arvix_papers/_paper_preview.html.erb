@@ -16,8 +16,8 @@
     </div>
   </td>
   <td class="paper-preview__cell"><%= paper.author_names.join(', ') %></td>
-  <td class="paper-preview__cell"><%= link_to paper.category, arvix_papers_path(category: paper.category) %></td>
+  <td class="paper-preview__cell"><%= link_to paper.category, arvix_papers_path(category: paper.category, period: params[:period]) %></td>
   <td class="paper-preview__cell"><%= format_date(paper.published_date) %></td>
-  <td class="paper-preview__cell"><%= link_to 'pdf', paper.pdf_link %></td>
-  <td class="paper-preview__cell"><%= link_to 'html', paper.paper_link %></td>
+  <td class="paper-preview__cell"><%= link_to fa_icon('file-pdf-o'), paper.pdf_link %></td>
+  <td class="paper-preview__cell"><%= link_to fa_icon('file-word-o'), paper.paper_link %></td>
 </tr>

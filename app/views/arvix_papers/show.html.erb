@@ -10,8 +10,8 @@
     </div>
 
     <div class="paper-detail__links">
-      <%= link_to 'pdf', @arvix_paper.pdf_link %>
-      <%= link_to 'html', @arvix_paper.paper_link %>
+      <%= fa_icon('file-pdf-o') %> <%= link_to "pdf", @arvix_paper.pdf_link %>
+      <%= fa_icon('file-word-o') %> <%= link_to 'html', @arvix_paper.paper_link %>
     </div>
   </div>
 
@@ -20,7 +20,7 @@
   <div class="paper-detail__thumbnail-container">
     <%= image_tag(@arvix_paper.thumbnail_url, class: 'paper-detail__thumbnail') if @arvix_paper.thumbnail? %>
   </div>
-  <div>
-    <%= link_to "Back", :back %>
+  <div class="paper-detail__back">
+    <%= link_to "Go back", :back %>
   </div>
 </div>
