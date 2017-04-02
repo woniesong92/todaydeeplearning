@@ -12,9 +12,10 @@ nav {
   background-size: 50px;
 }
 
-.nav__brand {
+.nav__home-link {
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .nav__title {

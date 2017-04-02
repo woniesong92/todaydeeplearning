@@ -1,7 +1,9 @@
 <nav>
   <div class="nav__brand">
-    <div class="nav__logo"></div>
-    <div class="nav__title">Today's Deep Learning</div>
+    <a class="nav__home-link" href="<%= root_path %>">
+      <div class="nav__logo"></div>
+      <div class="nav__title">Today's Deep Learning</div>
+    </a>
   </div>
   <div class="nav__user">
     <% if current_user %>

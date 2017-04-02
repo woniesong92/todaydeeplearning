@@ -25,8 +25,6 @@ gem 'nokogiri'
 gem 'acts_as_votable'
 gem 'devise'
 gem 'font-awesome-rails'
-# gem 'mini_magick'
-# gem 'rmagick'
 gem 'carrierwave', '~> 1.0'
 
 # Use jquery as the JavaScript library
