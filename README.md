@@ -6,6 +6,10 @@ The papers will be ranked based on the number of votes they received during the 
 
 ### See it in action
 
+![Screenshot1](http://i.imgur.com/ptnkSwu.jpg)
+![Screenshot2](http://i.imgur.com/1iDKRux.jpg)
+
+
 ```
 $ rake db:setup
 $ rails server
