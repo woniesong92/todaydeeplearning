@@ -26,6 +26,7 @@ gem 'acts_as_votable'
 gem 'devise'
 gem 'font-awesome-rails'
 gem 'carrierwave', '~> 1.0'
+gem 'bootstrap-sass'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

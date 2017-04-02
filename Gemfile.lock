@@ -42,6 +42,8 @@ GEM
     arel (7.1.4)
     bcrypt (3.1.11)
     bindex (0.5.0)
+    bootstrap-sass (3.2.0.2)
+      sass (~> 3.2)
     builder (3.2.3)
     byebug (9.0.6)
     carrierwave (1.0.0)
@@ -177,6 +179,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_votable
+  bootstrap-sass
   byebug
   carrierwave (~> 1.0)
   coffee-rails (~> 4.2)
