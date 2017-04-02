@@ -22,6 +22,7 @@ gem 'font-awesome-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'bootstrap-sass'
 gem 'sidekiq'
+gem 'fog-aws'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
