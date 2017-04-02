@@ -27,7 +27,7 @@ class ArvixPaper::PdfToThumb
   def generate_thumb(tmp_file_path)
     %x(convert #{tmp_file_path}.pdf[0-#{@num_thumb_pages}] -thumbnail x640 #{tmp_file_path}.png)
     stripped_file_names = (0...@num_thumb_pages).to_a.map { |i| "#{tmp_file_path}-#{i}.png" }.join(" ")
-    output_path = "#{tmp_file_path}_merged.png"
+    output_path = "#{tmp_file_path}_merged.jpg"
     %x(montage #{stripped_file_names} -mode concatenate -quality 80 -tile x1 #{output_path})
 
     output_path

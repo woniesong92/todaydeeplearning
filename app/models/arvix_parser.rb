@@ -25,6 +25,11 @@ class ArvixParser
   end
 
   def author_names
-    @entry['author']&.map { |author| author['name'] }
+    authors = @entry['author']
+    if authors && authors.is_a?(Array)
+      @entry['author'].map { |author| author['name'] }
+    else
+      []
+    end
   end
 end
