@@ -2,6 +2,20 @@
 
 .paper-detail {
   padding-bottom: 20px;
+  padding: 10px 0;
+}
+
+.paper-detail__title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.paper-detail__category {
+  margin: 10px 0;
+  padding: 10px;
+  display: inline-block;
+  background-color: $light-grey-bg;
+  font-weight: bold;
 }
 
 .paper-detail__thumbnail-container,
