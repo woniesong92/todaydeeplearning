@@ -2,7 +2,7 @@
 populate_with_real_papers(3)
 
 def populate_with_real_papers(max_results=5)
-  raw_papers = ArvixGetter.new().papers
+  raw_papers = ArvixGetter.new(max_results: max_results).papers
   hashed = Hash.from_xml(raw_papers)
   entries = hashed["feed"]["entry"]
 

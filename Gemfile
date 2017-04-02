@@ -27,6 +27,7 @@ gem 'devise'
 gem 'font-awesome-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'bootstrap-sass'
+gem 'sidekiq'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
