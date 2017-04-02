@@ -4,7 +4,10 @@ class ArvixParser
   end
 
   def parse
-    return {} unless @entry
+    if @entry.nil? || @entry['title'].nil?
+      p "Failed to parse #{@entry}"
+      return nil
+    end
 
     parsed = {
       title: @entry['title'],

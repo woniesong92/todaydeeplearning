@@ -11,6 +11,12 @@ $ rake db:setup
 $ rails server
 ```
 
+You can also do
+
+```
+$ rake arvix_papers:populate_with_latest_papers
+```
+
 ### Style guide
 
 1. Rails (https://github.com/bbatsov/rails-style-guide)
