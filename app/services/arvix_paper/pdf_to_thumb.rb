@@ -9,9 +9,10 @@ class ArvixPaper::PdfToThumb
       @pdf_url,
       headers: {"User-Agent" => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'}
     ).body
-    tmp_file_path = Dir::Tmpname.make_tmpname '/tmp/', nil
+    tmp_file_name = Dir::Tmpname.make_tmpname('', nil)
+    tmp_file_path = Rails.root.join('tmp', tmp_file_name).to_s
 
-    File.open(tmp_file_path+'.pdf', "wb") do |f|
+    File.open("#{tmp_file_path}.pdf", "wb") do |f|
       f.write(downloaded_pdf)
     end
 
@@ -24,10 +25,10 @@ class ArvixPaper::PdfToThumb
   # 2. Montage them side by side (e.g. 1x-tile)
   # Returns a tmp path to the generated thumbnail file
   def generate_thumb(tmp_file_path)
-    %x(magick convert #{tmp_file_path}.pdf[0-#{@num_thumb_pages}] -thumbnail x640 #{tmp_file_path}.png)
+    %x(convert #{tmp_file_path}.pdf[0-#{@num_thumb_pages}] -thumbnail x640 #{tmp_file_path}.png)
     stripped_file_names = (0...@num_thumb_pages).to_a.map { |i| "#{tmp_file_path}-#{i}.png" }.join(" ")
     output_path = "#{tmp_file_path}_merged.png"
-    %x(magick montage #{stripped_file_names} -mode concatenate -quality 80 -tile x1 #{output_path})
+    %x(montage #{stripped_file_names} -mode concatenate -quality 80 -tile x1 #{output_path})
 
     output_path
   end
