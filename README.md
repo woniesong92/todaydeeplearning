@@ -6,6 +6,8 @@ The papers will be ranked based on the number of votes they received during the 
 
 ### See it in action
 
+[Todaysdeeplearning.com](http://todaysdeeplearning.com)
+
 ![Screenshot1](http://i.imgur.com/ptnkSwu.jpg)
 ![Screenshot2](http://i.imgur.com/1iDKRux.jpg)
 
@@ -60,4 +62,4 @@ $ rake arvix_papers:populate_with_latest_papers
 
 ### TensorflowKR
 
-This is a project initially started from the TensorFlowKR group (https://www.facebook.com/groups/TensorFlowKR)
+This is a project initially started from the idea from TensorFlowKR group (https://www.facebook.com/groups/TensorFlowKR)
