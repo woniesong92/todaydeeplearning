@@ -14,7 +14,8 @@ class ArvixPaper < ApplicationRecord
       category ?
         where(category: category, created_at: 1.day.ago..DateTime.now).order(created_at: :desc).limit(200) :
         where(created_at: 1.day.ago..DateTime.now).order(created_at: :desc).limit(200)
-
+    # FIXME: limit should be much larger for this_week and this_month to rank the posts correctly
+    # but we don't want to load too many posts in memory just to sort them afterwards
     when 'this_week'
       category ?
         where(category: category, created_at: 1.week.ago..DateTime.now).order(created_at: :desc).limit(200) :
