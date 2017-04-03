@@ -12,10 +12,11 @@ class ArvixPaper < ApplicationRecord
     case period
     when 'today'
       category ?
+        # TODO: add cached_upvotes_count, order by it first, and then created_at.
+        # Otherwise, this_week and this_month ranking will be inaccurate(i.e. plain wrong) if there are more than hundreds of
+        # paper per week
         where(category: category, created_at: 1.day.ago..DateTime.now).order(created_at: :desc).limit(200) :
         where(created_at: 1.day.ago..DateTime.now).order(created_at: :desc).limit(200)
-    # FIXME: limit should be much larger for this_week and this_month to rank the posts correctly
-    # but we don't want to load too many posts in memory just to sort them afterwards
     when 'this_week'
       category ?
         where(category: category, created_at: 1.week.ago..DateTime.now).order(created_at: :desc).limit(200) :
