@@ -6,6 +6,14 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <% if current_page?(root_path) %>
+      <meta property="og:url" content="http://www.todaysdeeplearning.com" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Todaydeeplearning" />
+      <meta property="og:description" content="Todaysdeeplearning is a website where users recommend the best Deep Learning research papers with one another" />
+      <meta property="og:image" content="http://i.imgur.com/w19dGUA.jpg" />
+    <% end %>
   </head>
 
   <%= render 'shared/nav' %>
