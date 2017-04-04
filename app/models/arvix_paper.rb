@@ -12,24 +12,27 @@ class ArvixPaper < ApplicationRecord
     case period
     when 'today'
       category ?
-        # TODO: add cached_upvotes_count, order by it first, and then created_at.
-        # Otherwise, this_week and this_month ranking will be inaccurate(i.e. plain wrong) if there are more than hundreds of
-        # paper per week
-        where(category: category, created_at: 1.day.ago..DateTime.now).order(created_at: :desc).limit(200) :
-        where(created_at: 1.day.ago..DateTime.now).order(created_at: :desc).limit(200)
+        where(category: category, created_at: 1.day.ago..DateTime.now).order(cached_votes_score: :desc, created_at: :desc).limit(20) :
+        where(created_at: 1.day.ago..DateTime.now).order(cached_votes_score: :desc, created_at: :desc).limit(20)
     when 'this_week'
       category ?
-        where(category: category, created_at: 1.week.ago..DateTime.now).order(created_at: :desc).limit(200) :
-        where(created_at: 1.week.ago..DateTime.now).order(created_at: :desc).limit(200)
+        where(category: category, created_at: 1.week.ago..DateTime.now).order(cached_votes_score: :desc, created_at: :desc).limit(20) :
+        where(created_at: 1.week.ago..DateTime.now).order(cached_votes_score: :desc, created_at: :desc).limit(20)
     when 'this_month'
       category ?
-        where(category: category, created_at: 1.month.ago..DateTime.now).order(created_at: :desc).limit(200) :
-        where(created_at: 1.month.ago..DateTime.now).order(created_at: :desc).limit(200)
+        where(category: category, created_at: 1.month.ago..DateTime.now).order(cached_votes_score: :desc, created_at: :desc).limit(20) :
+        where(created_at: 1.month.ago..DateTime.now).order(cached_votes_score: :desc, created_at: :desc).limit(20)
     else
       category ?
-        where(category: category, created_at: 1.month.ago..DateTime.now).order(created_at: :desc).limit(200) :
-        where(created_at: 1.month.ago..DateTime.now).order(created_at: :desc).limit(200)
+        where(category: category, created_at: 1.month.ago..DateTime.now).order(cached_votes_score: :desc, created_at: :desc).limit(20) :
+        where(created_at: 1.month.ago..DateTime.now).order(cached_votes_score: :desc, created_at: :desc).limit(20)
     end
+  }
+
+  scope :latest, -> (category) {
+    category ?
+      where(category: category, created_at: 3.day.ago..DateTime.now).order(created_at: :desc).limit(30) :
+      where(created_at: 3.day.ago..DateTime.now).order(created_at: :desc).limit(30)
   }
 
   def author_names
@@ -37,6 +40,8 @@ class ArvixPaper < ApplicationRecord
   end
 
   class << self
+    # NOTE: this is not used yet because of its inefficiency
+    # TODO: move this to DB layer for more accurate ranking
     def sort_by_rank(papers)
       papers.sort { |a,b| compare(a, b) }
     end

@@ -3,13 +3,14 @@ class ArvixPapersController < ApplicationController
   before_action :require_login, only: [:upvote, :downvote]
 
   def index
-    papers = ArvixPaper.within(params[:period], params[:category])
-
     if params[:latest]
-      @arvix_papers = papers.page(params[:page])
+      @arvix_papers = ArvixPaper.includes(:authors, :votes_for)
+                                .latest(params[:category])
+                                .page(params[:page])
     else
-      sorted_papers = ArvixPaper.sort_by_rank(papers)
-      @arvix_papers = Kaminari.paginate_array(sorted_papers).page(params[:page]).per(10)
+      @arvix_papers = ArvixPaper.includes(:authors, :votes_for)
+                                .within(params[:period], params[:category])
+                                .page(params[:page])
     end
   end
 

@@ -3,7 +3,7 @@
   <td class="paper-preview__cell">
     <div class="paper-preview__votes">
       <div><%= link_to fa_icon("chevron-up"), upvote_arvix_paper_path(paper), method: :post %></div>
-      <div><%= paper.get_likes.size %></div>
+      <div><%= paper.votes_for.size %></div>
       <div><%= link_to fa_icon("chevron-down"), downvote_arvix_paper_path(paper), method: :post %></div>
     </div>
   </td>
